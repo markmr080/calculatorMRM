@@ -15,18 +15,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
-      - name: Se configura JDK 21 (Temurin)
-        uses: actions/setup-java@v5
+        uses: actions/checkout@v4 # Versión estable actual
 
+      - name: Se configura JDK 21 (Temurin)
+        uses: actions/setup-java@v4 # Versión estable actual
         with:
-          distribution: temurin
-          java-version: "21"
+          distribution: 'temurin'
+          java-version: '21'
           check-latest: true
-          cache: gradle
+          cache: 'gradle'
 
       - name: Asegura que gradlew sea ejecutable
         run: chmod +x ./gradlew
 
       - name: Compilación
-        run: ./gradlew compileJava –-no-daemon
+        # Se corrigió el guion largo por doble guion estándar --
+        run: ./gradlew compileJava --no-daemon
