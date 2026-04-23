@@ -13,7 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Este bloque hace que no tengas que poner working-directory en cada paso
     defaults:
       run:
         working-directory: ./calculatorMRM
@@ -31,9 +30,9 @@ jobs:
           cache: 'gradle'
 
       - name: Asegurar que gradlew sea ejecutable
-        # Ahora sí encontrará el archivo porque estamos en la carpeta correcta
+
         run: chmod +x ./gradlew
 
       - name: Compilación
-        # Usamos --no-daemon para evitar procesos en segundo plano en CI
+      
         run: ./gradlew compileJava --no-daemon
