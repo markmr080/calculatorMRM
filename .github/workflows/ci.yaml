@@ -30,4 +30,5 @@ jobs:
 
       - name: Compilación
         # Se corrigió el guion largo por doble guion estándar --
-        run: ./gradlew compileJava --no-daemon
+        run: ./gradlew compileJava 
+        working-directory: ./calculatorMRM
