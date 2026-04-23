@@ -21,7 +21,7 @@ jobs:
 
         with:
           distribution: temurin
-          java-version: "25"
+          java-version: "21"
           check-latest: true
           cache: gradle
 
