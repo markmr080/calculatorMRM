@@ -51,3 +51,12 @@ jobs:
 
       - name: Fuerza comprobación de cobertura de codigo
         run: ./gradlew jacocoTestCoverageVerification --no-daemon
+
+      - name: Analisis estatico de codigo
+        run: ./gradlew checkstyleMain --no-daemon
+      
+      - name: Se sube el informe checkstyleMain
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkstyle-report
+          path: build/reports/checkstyle
